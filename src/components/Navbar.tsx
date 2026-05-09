@@ -70,8 +70,8 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-300",
           isScrolled
-            ? "bg-[#0B0F19]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl py-2"
-            : "bg-transparent py-4",
+            ? "bg-[#0B0F19]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl py-1.5"
+            : "bg-transparent py-3",
           // Hide navbar behind the mobile menu panel when open
           isOpen && "lg:opacity-100 opacity-0 pointer-events-none lg:pointer-events-auto"
         )}
@@ -84,9 +84,9 @@ export default function Navbar() {
               <Image
                 src="/assets/images/logo/Primelink Logo - Final without BG.png"
                 alt="PrimeLink Global Services"
-                height={isScrolled ? 42 : 52}
+                height={isScrolled ? 32 : 38}
                 width={0}
-                sizes="200px"
+                sizes="160px"
                 className="transition-all duration-300 object-contain brightness-0 invert w-auto"
                 priority
               />

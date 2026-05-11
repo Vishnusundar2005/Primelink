@@ -55,43 +55,43 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-[#0B0F19] relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: "var(--pl-bg)" }}>
       <div className="glow-orb glow-orb-coral w-[400px] h-[400px] md:w-[600px] md:h-[600px] top-0 right-0 opacity-20" />
 
       <div className="container-custom relative z-10">
-        <div className="glass-panel overflow-hidden flex flex-col lg:flex-row shadow-2xl border border-white/10">
+        <div className="glass-panel overflow-hidden flex flex-col lg:flex-row shadow-2xl border-theme border">
 
           {/* ── Left info panel ── */}
-          <div className="w-full lg:w-2/5 bg-gradient-to-br from-[#111827] to-[#0B0F19] p-8 md:p-12 text-white relative overflow-hidden border-b lg:border-b-0 lg:border-r border-white/5">
+          <div className="w-full lg:w-2/5 p-8 md:p-12 relative overflow-hidden border-b lg:border-b-0 lg:border-r" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4 relative z-10">Get In Touch</h2>
-            <p className="text-[#94A3B8] mb-8 relative z-10 leading-relaxed text-base md:text-lg font-light">
+            <p className="text-body mb-8 relative z-10 leading-relaxed text-base md:text-lg font-light">
               Fill the form and we'll send your details directly to our team on WhatsApp for a fast response.
             </p>
 
             <div className="space-y-6 relative z-10">
               <div className="flex items-start gap-4 group">
-                <div className="bg-white/5 border border-white/10 p-3 rounded-xl group-hover:bg-[#4F46E5]/20 group-hover:border-[#4F46E5]/50 transition-colors flex-shrink-0">
+                <div className="p-3 rounded-xl group-hover:bg-[#4F46E5]/20 group-hover:border-[#4F46E5]/50 transition-colors flex-shrink-0 border" style={{ background: "var(--pl-toggle-bg)", borderColor: "var(--pl-border)" }}>
                   <Phone size={20} className="text-[#4F46E5]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#94A3B8] uppercase font-bold tracking-widest mb-1">Direct Line</p>
-                  <a href="tel:+918220625251" className="text-base md:text-lg font-bold hover:text-[#4F46E5] transition-colors">+91 8220625251</a>
+                  <p className="text-xs text-muted uppercase font-bold tracking-widest mb-1">Direct Line</p>
+                  <a href="tel:+918220625251" className="text-heading text-base md:text-lg font-bold hover:text-[#4F46E5] transition-colors">+91 8220625251</a>
                 </div>
               </div>
               <div className="flex items-start gap-4 group">
-                <div className="bg-white/5 border border-white/10 p-3 rounded-xl group-hover:bg-[#FF6B6B]/20 group-hover:border-[#FF6B6B]/50 transition-colors flex-shrink-0">
+                <div className="p-3 rounded-xl group-hover:bg-[#FF6B6B]/20 group-hover:border-[#FF6B6B]/50 transition-colors flex-shrink-0 border" style={{ background: "var(--pl-toggle-bg)", borderColor: "var(--pl-border)" }}>
                   <Mail size={20} className="text-[#FF6B6B]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#94A3B8] uppercase font-bold tracking-widest mb-1">Email</p>
-                  <a href="mailto:Support@primelink.co.in" className="text-sm md:text-base font-bold break-all hover:text-[#FF6B6B] transition-colors">Support@primelink.co.in</a>
+                  <p className="text-xs text-muted uppercase font-bold tracking-widest mb-1">Email</p>
+                  <a href="mailto:Support@primelink.co.in" className="text-heading text-sm md:text-base font-bold break-all hover:text-[#FF6B6B] transition-colors">Support@primelink.co.in</a>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 pt-8 border-t border-white/5 relative z-10">
-              <h5 className="font-bold mb-4 text-white tracking-wide text-sm">The PrimeLink Standard</h5>
-              <ul className="space-y-3 text-sm text-[#94A3B8]">
+            <div className="mt-10 pt-8 border-t relative z-10" style={{ borderColor: "var(--pl-border)" }}>
+              <h5 className="font-bold mb-4 text-heading tracking-wide text-sm">The PrimeLink Standard</h5>
+              <ul className="space-y-3 text-sm text-body">
                 <li className="flex items-center gap-3 font-medium">
                   <div className="w-2 h-2 bg-[#4F46E5] rounded-full shadow-[0_0_8px_#4F46E5] flex-shrink-0" />
                   Audited Supplier Network
@@ -109,7 +109,7 @@ export default function ContactForm() {
           </div>
 
           {/* ── Right form panel ── */}
-          <div className="w-full lg:w-3/5 p-6 sm:p-10 md:p-12 bg-[#111827]/50 relative">
+          <div className="w-full lg:w-3/5 p-6 sm:p-10 md:p-12 relative" style={{ background: "var(--pl-surface)" }}>
             {status === "success" ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -120,14 +120,14 @@ export default function ContactForm() {
                   <CheckCircle size={40} />
                 </div>
                 <div>
-                  <h3 className="text-2xl md:text-4xl font-extrabold text-white mb-3">Message Sent!</h3>
-                  <p className="text-[#94A3B8] text-base md:text-lg max-w-sm mx-auto font-light leading-relaxed">
+                  <h3 className="text-2xl md:text-4xl font-extrabold text-heading mb-3">Message Sent!</h3>
+                  <p className="text-body text-base md:text-lg max-w-sm mx-auto font-light leading-relaxed">
                     WhatsApp has opened with your details pre-filled. Our team will respond shortly.
                   </p>
                 </div>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="mt-4 text-[#4F46E5] font-bold hover:text-white transition-colors tracking-wide uppercase text-sm border border-[#4F46E5]/40 px-6 py-2 rounded-full hover:border-white/40"
+                  className="mt-4 text-[#4F46E5] font-bold hover:text-heading transition-colors tracking-wide uppercase text-sm border border-[#4F46E5]/40 px-6 py-2 rounded-full"
                 >
                   Send Another Message
                 </button>
@@ -137,7 +137,7 @@ export default function ContactForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Name */}
                   <div>
-                    <label className="block text-xs font-bold text-[#94A3B8] uppercase tracking-widest mb-2">
+                    <label className="block text-xs font-bold text-muted uppercase tracking-widest mb-2">
                       Full Name *
                     </label>
                     <div className="relative">
@@ -147,14 +147,15 @@ export default function ContactForm() {
                         type="text"
                         required
                         placeholder="John Doe"
-                        className="w-full pl-11 pr-4 py-3.5 bg-[#0B0F19] border border-white/10 rounded-xl text-white placeholder-white/25 focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        className="w-full pl-11 pr-4 py-3.5 border rounded-xl focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        style={{ background: "var(--pl-input-bg)", borderColor: "var(--pl-input-border)", color: "var(--pl-text-heading)", caretColor: "var(--pl-text-heading)" }}
                       />
                     </div>
                   </div>
 
                   {/* Company */}
                   <div>
-                    <label className="block text-xs font-bold text-[#94A3B8] uppercase tracking-widest mb-2">
+                    <label className="block text-xs font-bold text-muted uppercase tracking-widest mb-2">
                       Company
                     </label>
                     <div className="relative">
@@ -163,7 +164,8 @@ export default function ContactForm() {
                         ref={companyRef}
                         type="text"
                         placeholder="Acme Corp."
-                        className="w-full pl-11 pr-4 py-3.5 bg-[#0B0F19] border border-white/10 rounded-xl text-white placeholder-white/25 focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        className="w-full pl-11 pr-4 py-3.5 border rounded-xl focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        style={{ background: "var(--pl-input-bg)", borderColor: "var(--pl-input-border)", color: "var(--pl-text-heading)", caretColor: "var(--pl-text-heading)" }}
                       />
                     </div>
                   </div>
@@ -172,7 +174,7 @@ export default function ContactForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Phone */}
                   <div>
-                    <label className="block text-xs font-bold text-[#94A3B8] uppercase tracking-widest mb-2">
+                    <label className="block text-xs font-bold text-muted uppercase tracking-widest mb-2">
                       Phone *
                     </label>
                     <div className="relative">
@@ -182,14 +184,15 @@ export default function ContactForm() {
                         type="tel"
                         required
                         placeholder="+91 98765 43210"
-                        className="w-full pl-11 pr-4 py-3.5 bg-[#0B0F19] border border-white/10 rounded-xl text-white placeholder-white/25 focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        className="w-full pl-11 pr-4 py-3.5 border rounded-xl focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        style={{ background: "var(--pl-input-bg)", borderColor: "var(--pl-input-border)", color: "var(--pl-text-heading)", caretColor: "var(--pl-text-heading)" }}
                       />
                     </div>
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-bold text-[#94A3B8] uppercase tracking-widest mb-2">
+                    <label className="block text-xs font-bold text-muted uppercase tracking-widest mb-2">
                       Email *
                     </label>
                     <div className="relative">
@@ -199,7 +202,8 @@ export default function ContactForm() {
                         type="email"
                         required
                         placeholder="john@example.com"
-                        className="w-full pl-11 pr-4 py-3.5 bg-[#0B0F19] border border-white/10 rounded-xl text-white placeholder-white/25 focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        className="w-full pl-11 pr-4 py-3.5 border rounded-xl focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all text-sm"
+                        style={{ background: "var(--pl-input-bg)", borderColor: "var(--pl-input-border)", color: "var(--pl-text-heading)", caretColor: "var(--pl-text-heading)" }}
                       />
                     </div>
                   </div>
@@ -207,7 +211,7 @@ export default function ContactForm() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-bold text-[#94A3B8] uppercase tracking-widest mb-2">
+                  <label className="block text-xs font-bold text-muted uppercase tracking-widest mb-2">
                     Message / Requirements *
                   </label>
                   <div className="relative">
@@ -217,7 +221,8 @@ export default function ContactForm() {
                       required
                       rows={4}
                       placeholder="Describe your product, quantity, destination, and any other details..."
-                      className="w-full pl-11 pr-4 py-3.5 bg-[#0B0F19] border border-white/10 rounded-xl text-white placeholder-white/25 focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all resize-none text-sm"
+                      className="w-full pl-11 pr-4 py-3.5 border rounded-xl focus:ring-2 focus:ring-[#4F46E5] focus:border-transparent outline-none transition-all resize-none text-sm"
+                      style={{ background: "var(--pl-input-bg)", borderColor: "var(--pl-input-border)", color: "var(--pl-text-heading)", caretColor: "var(--pl-text-heading)" }}
                     />
                   </div>
                 </div>
@@ -241,7 +246,7 @@ export default function ContactForm() {
                   )}
                 </button>
 
-                <p className="text-center text-xs text-[#94A3B8] mt-1">
+                <p className="text-center text-xs text-body mt-1">
                   Clicking submit will open WhatsApp with your message pre-filled.
                 </p>
               </form>

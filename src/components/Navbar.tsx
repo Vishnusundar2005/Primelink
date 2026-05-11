@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "./ThemeProvider";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -29,10 +30,55 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
+/** Animated Sun/Moon toggle button */
+function ThemeToggle({ className }: { className?: string }) {
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      onClick={toggleTheme}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className={cn(
+        "relative flex items-center justify-center w-9 h-9 rounded-xl border transition-all duration-300 active:scale-95",
+        isDark
+          ? "bg-white/8 border-white/12 text-[#94A3B8] hover:text-white hover:bg-white/15"
+          : "bg-black/6 border-black/10 text-[#475569] hover:text-[#0F172A] hover:bg-black/12",
+        className
+      )}
+      style={{
+        background: isDark ? "var(--pl-toggle-bg)" : "var(--pl-toggle-bg)",
+        borderColor: isDark ? "var(--pl-toggle-border)" : "var(--pl-toggle-border)",
+      }}
+    >
+      <span
+        className="absolute inset-0 flex items-center justify-center transition-all duration-300"
+        style={{
+          opacity: isDark ? 1 : 0,
+          transform: isDark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.5)",
+        }}
+      >
+        <Moon size={16} />
+      </span>
+      <span
+        className="absolute inset-0 flex items-center justify-center transition-all duration-300"
+        style={{
+          opacity: isDark ? 0 : 1,
+          transform: isDark ? "rotate(-90deg) scale(0.5)" : "rotate(0deg) scale(1)",
+        }}
+      >
+        <Sun size={16} />
+      </span>
+    </button>
+  );
+}
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   // Scroll listener
   useEffect(() => {
@@ -70,11 +116,18 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-300",
           isScrolled
-            ? "bg-[#0B0F19]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl py-1"
+            ? "backdrop-blur-xl border-b shadow-2xl py-1"
             : "bg-transparent py-2",
-          // Hide navbar behind the mobile menu panel when open
           isOpen && "lg:opacity-100 opacity-0 pointer-events-none lg:pointer-events-auto"
         )}
+        style={
+          isScrolled
+            ? {
+                background: "var(--pl-nav-bg-scrolled)",
+                borderColor: "var(--pl-border)",
+              }
+            : undefined
+        }
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
 
@@ -87,7 +140,8 @@ export default function Navbar() {
                 height={isScrolled ? 26 : 30}
                 width={0}
                 sizes="140px"
-                className="transition-all duration-300 object-contain brightness-0 invert w-auto"
+                className="transition-all duration-300 object-contain w-auto"
+                style={{ filter: "var(--pl-logo-filter)" }}
                 priority
               />
             </div>
@@ -104,7 +158,12 @@ export default function Navbar() {
               >
                 {link.dropdown ? (
                   <>
-                    <button className="flex items-center gap-1.5 font-semibold text-sm tracking-wide text-[#94A3B8] hover:text-white transition-colors py-2 whitespace-nowrap">
+                    <button
+                      className="flex items-center gap-1.5 font-semibold text-sm tracking-wide transition-colors py-2 whitespace-nowrap"
+                      style={{ color: "var(--pl-nav-text)" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--pl-nav-text-hover)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--pl-nav-text)")}
+                    >
                       {link.name}
                       <ChevronDown
                         size={14}
@@ -116,11 +175,15 @@ export default function Navbar() {
                     </button>
                     <div
                       className={cn(
-                        "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-[#111827]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl py-2 transition-all duration-200 origin-top",
+                        "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 backdrop-blur-2xl border rounded-2xl shadow-2xl py-2 transition-all duration-200 origin-top",
                         activeDropdown === link.name
                           ? "opacity-100 scale-100 visible pointer-events-auto"
                           : "opacity-0 scale-95 invisible pointer-events-none"
                       )}
+                      style={{
+                        background: isDark ? "rgba(17, 24, 39, 0.95)" : "rgba(255,255,255,0.97)",
+                        borderColor: "var(--pl-border)",
+                      }}
                     >
                       <div className="flex flex-col">
                         {link.dropdown.map((sub) => (
@@ -128,7 +191,16 @@ export default function Navbar() {
                             key={sub.name}
                             href={sub.href}
                             onClick={() => setActiveDropdown(null)}
-                            className="px-5 py-2.5 text-sm font-medium text-[#94A3B8] hover:text-white hover:bg-white/5 transition-colors"
+                            className="px-5 py-2.5 text-sm font-medium transition-colors"
+                            style={{ color: "var(--pl-nav-text)" }}
+                            onMouseEnter={(e) => {
+                              (e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text-hover)";
+                              (e.currentTarget as HTMLAnchorElement).style.background = "var(--pl-card-hover)";
+                            }}
+                            onMouseLeave={(e) => {
+                              (e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text)";
+                              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                            }}
                           >
                             {sub.name}
                           </Link>
@@ -139,26 +211,37 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={link.href}
-                    className="font-semibold text-sm tracking-wide text-[#94A3B8] hover:text-white transition-colors whitespace-nowrap"
+                    className="font-semibold text-sm tracking-wide transition-colors whitespace-nowrap"
+                    style={{ color: "var(--pl-nav-text)" }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text-hover)")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text)")}
                   >
                     {link.name}
                   </Link>
                 )}
               </div>
             ))}
+
+            {/* Theme Toggle — desktop */}
+            <ThemeToggle />
+
             <Link href="/contact" className="btn-primary py-2.5 px-5 text-sm whitespace-nowrap">
               Get Quote
             </Link>
           </div>
 
-          {/* Mobile Hamburger — only visible when menu is CLOSED */}
-          <button
-            className="lg:hidden flex-shrink-0 text-white p-2.5 bg-white/5 rounded-xl border border-white/10 active:scale-95 transition-all"
-            onClick={() => setIsOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu size={22} />
-          </button>
+          {/* Mobile right controls: toggle + hamburger */}
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="flex-shrink-0 p-2.5 rounded-xl border border-[var(--pl-border)] active:scale-95 transition-all"
+              style={{ background: "var(--pl-toggle-bg)", color: "var(--pl-text-heading)" }}
+              onClick={() => setIsOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu size={22} />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -182,23 +265,40 @@ export default function Navbar() {
         {/* Slide-in panel from right */}
         <div
           className={cn(
-            "absolute top-0 right-0 h-full w-[85vw] max-w-sm bg-[#0B0F19] border-l border-white/10 shadow-2xl flex flex-col transition-transform duration-300 ease-out",
+            "absolute top-0 right-0 h-full w-[85vw] max-w-sm border-l shadow-2xl flex flex-col transition-transform duration-300 ease-out",
             isOpen ? "translate-x-0" : "translate-x-full"
           )}
+          style={{
+            background: "var(--pl-mobile-panel)",
+            borderColor: "var(--pl-border)",
+          }}
         >
-          {/* Panel Header — logo + single close button */}
-          <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 flex-shrink-0">
+          {/* Panel Header — logo + close button */}
+          <div
+            className="flex items-center justify-between px-5 py-4 border-b flex-shrink-0"
+            style={{ borderColor: "var(--pl-border)" }}
+          >
             <Image
               src="/assets/images/logo/Primelink Logo - Final without BG.png"
               alt="PrimeLink"
               height={35}
               width={0}
               sizes="150px"
-              className="object-contain brightness-0 invert w-auto"
+              className="object-contain w-auto"
+              style={{ filter: "var(--pl-logo-filter)" }}
             />
             <button
               onClick={closeMenu}
-              className="text-[#94A3B8] hover:text-white p-2 rounded-xl hover:bg-white/10 transition-colors"
+              className="p-2 rounded-xl transition-colors"
+              style={{ color: "var(--pl-nav-text)" }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color = "var(--pl-nav-text-hover)";
+                (e.currentTarget as HTMLButtonElement).style.background = "var(--pl-toggle-bg)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color = "var(--pl-nav-text)";
+                (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+              }}
               aria-label="Close menu"
             >
               <X size={22} />
@@ -208,11 +308,16 @@ export default function Navbar() {
           {/* Nav Links */}
           <div className="flex-1 overflow-y-auto px-3 py-3 no-scrollbar">
             {navLinks.map((link) => (
-              <div key={link.name} className="border-b border-white/5 last:border-0">
+              <div
+                key={link.name}
+                className="border-b last:border-0"
+                style={{ borderColor: "var(--pl-border)" }}
+              >
                 {link.dropdown ? (
                   <div>
                     <button
-                      className="flex justify-between items-center w-full text-left font-semibold text-white text-sm py-4 px-3"
+                      className="flex justify-between items-center w-full text-left font-semibold text-sm py-4 px-3 transition-colors"
+                      style={{ color: "var(--pl-text-heading)" }}
                       onClick={() =>
                         setActiveDropdown(activeDropdown === link.name ? null : link.name)
                       }
@@ -232,12 +337,18 @@ export default function Navbar() {
                         activeDropdown === link.name ? "max-h-[500px]" : "max-h-0"
                       )}
                     >
-                      <div className="bg-white/5 rounded-xl mx-2 mb-3 px-3 py-1 flex flex-col">
+                      <div
+                        className="rounded-xl mx-2 mb-3 px-3 py-1 flex flex-col"
+                        style={{ background: "var(--pl-toggle-bg)" }}
+                      >
                         {link.dropdown.map((sub) => (
                           <Link
                             key={sub.name}
                             href={sub.href}
-                            className="text-[#94A3B8] text-sm font-medium py-2.5 px-1 hover:text-[#4F46E5] transition-colors border-b border-white/5 last:border-0"
+                            className="text-sm font-medium py-2.5 px-1 transition-colors border-b last:border-0"
+                            style={{ color: "var(--pl-nav-text)", borderColor: "var(--pl-border)" }}
+                            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F46E5")}
+                            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text)")}
                             onClick={closeMenu}
                           >
                             {sub.name}
@@ -249,7 +360,10 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={link.href}
-                    className="block font-semibold text-white text-sm py-4 px-3 hover:text-[#4F46E5] transition-colors"
+                    className="block font-semibold text-sm py-4 px-3 transition-colors"
+                    style={{ color: "var(--pl-text-heading)" }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#4F46E5")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-text-heading)")}
                     onClick={closeMenu}
                   >
                     {link.name}
@@ -260,7 +374,10 @@ export default function Navbar() {
           </div>
 
           {/* CTA at bottom */}
-          <div className="px-5 py-5 border-t border-white/10 flex-shrink-0">
+          <div
+            className="px-5 py-5 border-t flex-shrink-0"
+            style={{ borderColor: "var(--pl-border)" }}
+          >
             <Link
               href="/contact"
               className="btn-primary py-3.5 text-sm w-full flex items-center justify-center gap-2"

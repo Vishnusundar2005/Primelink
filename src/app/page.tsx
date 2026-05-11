@@ -22,13 +22,13 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-white selection:bg-[#4F46E5] selection:text-white">
+    <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
       <Hero />
       
       {/* Animated Metrics / About - Bento Grid */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#4F46E5]/20 to-transparent"></div>
+
         <div className="container-custom relative z-10">
           <motion.div 
             initial="hidden"
@@ -39,14 +39,14 @@ export default function Home() {
           >
             {/* Left Column: Text */}
             <motion.div variants={fadeUp} className="w-full lg:w-1/2 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 w-fit">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border backdrop-blur-md mb-8 w-fit" style={{ borderColor: "var(--pl-border)", background: "var(--pl-glass-bg)" }}>
                 <span className="w-2 h-2 rounded-full bg-[#FF6B6B] animate-pulse"></span>
-                <span className="text-xs font-semibold tracking-widest uppercase text-[#94A3B8]">The PrimeLink Advantage</span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-body">The PrimeLink Advantage</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">
                 Redefining the standard of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#FF6B6B]">Global Logistics.</span>
               </h2>
-              <p className="text-xl text-[#94A3B8] leading-relaxed mb-10 font-light">
+              <p className="text-xl text-body leading-relaxed mb-10 font-light">
                 We are more than just a freight forwarder. We are your end-to-end strategic partner, turning complex supply chains into your competitive advantage.
               </p>
               
@@ -59,7 +59,7 @@ export default function Home() {
                   <motion.li 
                     key={idx}
                     variants={fadeUp}
-                    className="flex items-center gap-4 text-lg text-white font-medium"
+                    className="flex items-center gap-4 text-lg text-heading font-medium"
                   >
                     <div className="w-8 h-8 rounded-full bg-[#4F46E5]/20 flex items-center justify-center border border-[#4F46E5]/50 flex-shrink-0">
                       <CheckCircle size={16} className="text-[#4F46E5]" />
@@ -76,20 +76,20 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#4F46E5]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Globe2 size={40} className="text-[#4F46E5] mb-6" />
                 <h3 className="text-2xl font-bold mb-2">Global Network</h3>
-                <p className="text-[#94A3B8]">Operating across major trade routes with hyper-local expertise.</p>
+                <p className="text-body">Operating across major trade routes with hyper-local expertise.</p>
               </motion.div>
               
               <motion.div variants={fadeUp} className="glass-panel p-8 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B6B]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <TrendingUp size={40} className="text-[#FF6B6B] mb-6" />
                 <h3 className="text-4xl font-black mb-2">6+</h3>
-                <p className="text-[#94A3B8] text-sm uppercase tracking-wider font-semibold">Years Exp.</p>
+                <p className="text-body text-sm uppercase tracking-wider font-semibold">Years Exp.</p>
               </motion.div>
 
               <motion.div variants={fadeUp} className="glass-panel p-8 relative overflow-hidden group bg-gradient-to-br from-[#4F46E5] to-[#3730A3] border-none">
                 <Shield size={40} className="text-white mb-6" />
-                <h3 className="text-xl font-bold mb-2 text-white">Risk Free</h3>
-                <p className="text-white/80 text-sm">Escrow payments & full cargo insurance.</p>
+                <h3 className="text-xl font-bold mb-2 !text-white">Risk Free</h3>
+                <p className="!text-white/80 text-sm font-medium">Escrow payments & full cargo insurance.</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -109,7 +109,7 @@ export default function Home() {
             className="text-center max-w-4xl mx-auto mb-24"
           >
             <h2 className="text-4xl md:text-6xl font-extrabold mb-6">Our Core Capabilities</h2>
-            <p className="text-xl text-[#94A3B8] font-light">From factory floor to your front door, we handle the friction so you can focus on scale.</p>
+            <p className="text-xl text-body font-light">From factory floor to your front door, we handle the friction so you can focus on scale.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -130,12 +130,12 @@ export default function Home() {
                 className="group relative glass-panel p-10 hover:-translate-y-2 transition-transform duration-500"
               >
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${service.color} to-transparent opacity-20 rounded-tr-3xl group-hover:opacity-40 transition-opacity`}></div>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} to-transparent/10 flex items-center justify-center mb-8 border border-white/10 group-hover:scale-110 transition-transform duration-500`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} to-transparent/10 flex items-center justify-center mb-8 border-theme border group-hover:scale-110 transition-transform duration-500`}>
                   {service.icon}
                 </div>
                 <h4 className="text-2xl font-bold mb-4">{service.title}</h4>
-                <p className="text-[#94A3B8] leading-relaxed mb-8">{service.desc}</p>
-                <a href="/services" className="inline-flex items-center gap-2 text-white font-semibold uppercase tracking-wider text-sm group-hover:text-[#4F46E5] transition-colors">
+                <p className="text-body leading-relaxed mb-8">{service.desc}</p>
+                <a href="/services" className="inline-flex items-center gap-2 text-heading font-semibold uppercase tracking-wider text-sm group-hover:text-[#4F46E5] transition-colors">
                   Explore <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Animated Process Timeline */}
-      <section className="py-32 relative bg-[#111827] border-y border-white/5">
+      <section className="py-32 relative border-y" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
         <div className="container-custom">
            <motion.div 
             initial="hidden"
@@ -155,12 +155,12 @@ export default function Home() {
             className="text-center max-w-4xl mx-auto mb-24"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold mb-6">The 10-Step Fulfillment Engine</h2>
-            <p className="text-xl text-[#94A3B8] font-light">A surgically precise workflow designed to eliminate variance and guarantee delivery.</p>
+            <p className="text-xl text-body font-light">A surgically precise workflow designed to eliminate variance and guarantee delivery.</p>
           </motion.div>
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-gradient-to-b from-[#4F46E5]/0 via-[#4F46E5] to-[#4F46E5]/0 hidden lg:block"></div>
+
 
             <div className="space-y-12 lg:space-y-24">
               {[
@@ -179,13 +179,13 @@ export default function Home() {
                   className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-24 ${idx % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}
                 >
                   <div className={`w-full lg:w-1/2 ${idx % 2 === 0 ? 'lg:text-right' : 'lg:text-left'} glass-panel p-8 relative group hover:border-[#4F46E5]/50 transition-colors`}>
-                    <div className="text-6xl font-black text-white/5 absolute top-4 right-4 group-hover:text-[#4F46E5]/10 transition-colors">{item.step}</div>
+                    <div className="text-6xl font-black opacity-5 text-heading absolute top-4 right-4 group-hover:text-[#4F46E5] group-hover:opacity-10 transition-all duration-300">{item.step}</div>
                     <h4 className="text-2xl font-bold mb-4">{item.title}</h4>
-                    <p className="text-[#94A3B8] text-lg">{item.desc}</p>
+                    <p className="text-body text-lg">{item.desc}</p>
                   </div>
                   
-                  <div className="hidden lg:flex w-16 h-16 rounded-full bg-[#0B0F19] border-4 border-[#4F46E5] z-10 items-center justify-center relative shadow-[0_0_30px_rgba(79,70,229,0.5)]">
-                    <span className="text-white font-bold">{item.step}</span>
+                  <div className="hidden lg:flex w-16 h-16 rounded-full border-4 border-[#4F46E5] z-10 items-center justify-center relative shadow-[0_0_30px_rgba(79,70,229,0.5)]" style={{ background: "var(--pl-bg-alt)" }}>
+                    <span className="font-bold" style={{ color: "var(--pl-text-heading)" }}>{item.step}</span>
                   </div>
                   
                   <div className="w-full lg:w-1/2 hidden lg:block"></div>

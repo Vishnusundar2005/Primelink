@@ -31,7 +31,7 @@ const faqData = [
 
 export default function Faq() {
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-white selection:bg-[#4F46E5] selection:text-white">
+    <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
       <PageHeader title="Knowledge Base" breadcrumb="FAQ" />
 
@@ -43,7 +43,7 @@ export default function Faq() {
         <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Frequently Asked Questions</h2>
-            <p className="text-lg md:text-xl text-[#94A3B8] font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-body font-light leading-relaxed">
               Find answers to the most common queries about our global product sourcing, logistics, and supply chain solutions.
             </p>
           </div>

@@ -34,7 +34,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
   };
 
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-white selection:bg-[#4F46E5] selection:text-white">
+    <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
       <PageHeader title={service.title} breadcrumb="Services" />
 
@@ -54,7 +54,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                 variants={staggerContainer}
               >
                 {/* Massive Image Header */}
-                <motion.div variants={fadeUp} className="relative w-full h-[250px] md:h-[400px] rounded-3xl overflow-hidden glass-panel border border-white/10 mb-8 md:mb-12 group">
+                <motion.div variants={fadeUp} className="relative w-full h-[250px] md:h-[400px] rounded-3xl overflow-hidden glass-panel border-theme border mb-8 md:mb-12 group">
                    <Image 
                     src={`/assets/images/${service.image}`} 
                     alt={service.title} 
@@ -64,29 +64,29 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/50 to-transparent"></div>
                   
                   <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6">
-                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-[#0B0F19]/80 backdrop-blur-xl border border-white/20 flex-shrink-0 flex items-center justify-center text-[#4F46E5] shadow-2xl">
+                    <div className="w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-2xl backdrop-blur-xl border-theme border flex-shrink-0 flex items-center justify-center text-[#4F46E5] shadow-2xl" style={{ background: "var(--pl-nav-bg-scrolled)" }}>
                       {service.icon}
                     </div>
-                    <h2 className="text-xl md:text-4xl font-extrabold text-white leading-tight">{service.title}</h2>
+                    <h2 className="text-xl md:text-4xl font-extrabold !text-white leading-tight">{service.title}</h2>
                   </div>
                 </motion.div>
 
                 {/* Description */}
                 <motion.div variants={fadeUp} className="prose prose-invert max-w-none mb-12 md:mb-16">
-                  <h3 className="text-xl md:text-2xl font-bold mb-6 text-white">Service Overview</h3>
-                  <p className="text-lg md:text-xl text-[#94A3B8] font-light leading-relaxed">
+                  <h3 className="text-xl md:text-2xl font-bold mb-6 text-heading">Service Overview</h3>
+                  <p className="text-lg md:text-xl text-body font-light leading-relaxed">
                     {service.description}
                   </p>
                 </motion.div>
 
                 {/* Features Bento Grid */}
                 <motion.div variants={fadeUp}>
-                  <h3 className="text-xl md:text-2xl font-bold mb-8 text-white">Key Capabilities</h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-8 text-heading">Key Capabilities</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="glass-panel p-6 md:p-8 border border-white/10 hover:border-[#4F46E5]/50 transition-colors group">
+                      <div key={idx} className="glass-panel p-6 md:p-8 border-theme border hover:border-[#4F46E5]/50 transition-colors group">
                         <CheckCircle className="text-[#4F46E5] mb-4 group-hover:scale-110 transition-transform" size={24} />
-                        <p className="text-base md:text-lg text-white font-medium">{feature}</p>
+                        <p className="text-base md:text-lg text-heading font-medium">{feature}</p>
                       </div>
                     ))}
                   </div>
@@ -97,8 +97,8 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                   <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#4F46E5_1px,transparent_1px)] [background-size:20px_20px]"></div>
                   <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
                     <div>
-                      <h4 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">Ready to scale your operations?</h4>
-                      <p className="text-[#94A3B8] text-sm md:text-base">Deploy our {service.title} architecture today.</p>
+                      <h4 className="text-xl md:text-2xl font-bold text-heading mb-2 leading-tight">Ready to scale your operations?</h4>
+                      <p className="text-body text-sm md:text-base">Deploy our {service.title} architecture today.</p>
                     </div>
                     <Link href="/contact" className="btn-primary flex-shrink-0 w-full md:w-auto text-center">
                       Initiate Protocol
@@ -112,8 +112,8 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
             {/* Sidebar */}
             <div className="w-full lg:w-1/3">
               <div className="sticky top-32">
-                <div className="glass-panel p-8 border border-white/10 mb-8">
-                  <h4 className="text-lg font-bold text-white mb-6 uppercase tracking-widest flex items-center gap-3">
+                <div className="glass-panel p-8 border-theme border mb-8">
+                  <h4 className="text-lg font-bold text-heading mb-6 uppercase tracking-widest flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#4F46E5] rounded-full"></span>
                     All Services
                   </h4>
@@ -125,8 +125,9 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                           className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
                             slug === s.slug 
                               ? "bg-[#4F46E5] text-white font-bold shadow-lg" 
-                              : "bg-white/5 text-[#94A3B8] hover:bg-white/10 hover:text-white"
+                              : "text-body hover:text-heading"
                           }`}
+                          style={slug !== s.slug ? { background: "var(--pl-glass-bg)" } : {}}
                         >
                           <span className="text-sm">{s.title}</span>
                           {slug === s.slug && <ArrowRight size={16} />}
@@ -137,9 +138,9 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                 </div>
 
                 <div className="glass-panel p-8 border border-[#FF6B6B]/30 bg-gradient-to-b from-[#FF6B6B]/10 to-transparent">
-                  <h4 className="text-2xl font-black text-white mb-4">Urgent Freight?</h4>
-                  <p className="text-[#94A3B8] text-sm mb-6">Connect directly with our logistics architects for immediate routing.</p>
-                  <a href="tel:+918220625251" className="text-[#FF6B6B] font-bold text-xl flex items-center gap-2 hover:text-white transition-colors">
+                  <h4 className="text-2xl font-black text-heading mb-4">Urgent Freight?</h4>
+                  <p className="text-body text-sm mb-6">Connect directly with our logistics architects for immediate routing.</p>
+                  <a href="tel:+918220625251" className="text-[#FF6B6B] font-bold text-xl flex items-center gap-2 hover:text-heading transition-colors">
                     +91 8220625251
                   </a>
                 </div>

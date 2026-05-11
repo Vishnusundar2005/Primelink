@@ -36,7 +36,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-[#0B0F19]">
+    <section className="relative min-h-screen flex items-center pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden" style={{ background: "var(--pl-bg)" }}>
       {/* Mouse Glow — desktop only */}
       <motion.div
         className="pointer-events-none absolute inset-0 z-10 opacity-30 hidden md:block"
@@ -53,7 +53,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
+          backgroundImage: "radial-gradient(circle at 2px 2px, var(--pl-text-heading) 1px, transparent 0)",
           backgroundSize: "40px 40px",
         }}
       />
@@ -71,13 +71,14 @@ export default function Hero() {
             {/* Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-md mb-6"
+              style={{ borderColor: "var(--pl-border)", background: "var(--pl-glass-bg)" }}
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B6B] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6B6B]" />
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-white tracking-wide uppercase">
+              <span className="text-xs sm:text-sm font-semibold tracking-wide uppercase text-heading">
                 Next-Gen Global Logistics
               </span>
             </motion.div>
@@ -97,10 +98,10 @@ export default function Hero() {
             {/* Subtext */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-[#94A3B8] mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
+              className="text-base sm:text-lg md:text-xl text-body mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
             >
               We handle everything from{" "}
-              <strong className="text-white font-semibold">A to Z</strong>. From
+              <strong className="text-heading font-semibold">A to Z</strong>. From
               sourcing premium products to delivering them safely to your doorstep
               anywhere in India.
             </motion.p>
@@ -122,19 +123,20 @@ export default function Hero() {
             {/* Metrics */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-sm mx-auto lg:mx-0"
+              className="grid grid-cols-3 gap-4 pt-6 border-t max-w-sm mx-auto lg:mx-0"
+              style={{ borderColor: "var(--pl-border)" }}
             >
               <div>
-                <h4 className="text-2xl sm:text-3xl font-black text-white mb-0.5">6+</h4>
-                <p className="text-xs text-[#94A3B8] uppercase tracking-wider font-semibold">Years Exp.</p>
+                <h4 className="text-2xl sm:text-3xl font-black text-heading mb-0.5">6+</h4>
+                <p className="text-xs text-body uppercase tracking-wider font-semibold">Years Exp.</p>
               </div>
               <div>
-                <h4 className="text-2xl sm:text-3xl font-black text-white mb-0.5">1143+</h4>
-                <p className="text-xs text-[#94A3B8] uppercase tracking-wider font-semibold">Shipments</p>
+                <h4 className="text-2xl sm:text-3xl font-black text-heading mb-0.5">1143+</h4>
+                <p className="text-xs text-body uppercase tracking-wider font-semibold">Shipments</p>
               </div>
               <div>
                 <h4 className="text-2xl sm:text-3xl font-black text-[#FF6B6B] mb-0.5">100%</h4>
-                <p className="text-xs text-[#94A3B8] uppercase tracking-wider font-semibold">Satisfaction</p>
+                <p className="text-xs text-body uppercase tracking-wider font-semibold">Satisfaction</p>
               </div>
             </motion.div>
           </motion.div>
@@ -152,31 +154,31 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 left-0 glass-panel p-6 shadow-2xl border-t border-l border-white/20 w-64"
+                className="absolute top-10 left-0 glass-panel p-6 shadow-2xl w-64"
               >
                 <Globe2 className="text-[#4F46E5] mb-4" size={32} />
-                <h5 className="text-white font-bold mb-2">Global Sourcing</h5>
-                <p className="text-xs text-[#94A3B8]">Connecting you with verified international suppliers.</p>
+                <h5 className="text-heading font-bold mb-2">Global Sourcing</h5>
+                <p className="text-xs text-body">Connecting you with verified international suppliers.</p>
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, 20, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/2 right-[-2rem] glass-panel p-6 shadow-2xl border-t border-l border-white/20 w-64 z-20"
+                className="absolute top-1/2 right-[-2rem] glass-panel p-6 shadow-2xl w-64 z-20"
               >
                 <ShieldCheck className="text-[#FF6B6B] mb-4" size={32} />
-                <h5 className="text-white font-bold mb-2">Secure Payments</h5>
-                <p className="text-xs text-[#94A3B8]">Escrow services and milestone-based releases.</p>
+                <h5 className="text-heading font-bold mb-2">Secure Payments</h5>
+                <p className="text-xs text-body">Escrow services and milestone-based releases.</p>
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute bottom-10 left-10 glass-panel p-6 shadow-2xl border-t border-l border-white/20 w-64"
+                className="absolute bottom-10 left-10 glass-panel p-6 shadow-2xl w-64"
               >
                 <Box className="text-[#F59E0B] mb-4" size={32} />
-                <h5 className="text-white font-bold mb-2">Customs & Freight</h5>
-                <p className="text-xs text-[#94A3B8]">Door-to-door delivery with zero hassle.</p>
+                <h5 className="text-heading font-bold mb-2">Customs &amp; Freight</h5>
+                <p className="text-xs text-body">Door-to-door delivery with zero hassle.</p>
               </motion.div>
             </div>
           </motion.div>

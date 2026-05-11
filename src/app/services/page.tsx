@@ -24,7 +24,7 @@ export default function ServicesIndex() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-white selection:bg-[#4F46E5] selection:text-white">
+    <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
       <PageHeader title="Global Services" breadcrumb="Services Index" />
 
@@ -40,7 +40,7 @@ export default function ServicesIndex() {
             className="text-center max-w-3xl mx-auto mb-20"
           >
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Specialist Capabilities</h2>
-            <p className="text-lg md:text-xl text-[#94A3B8] font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-body font-light leading-relaxed">
               Explore our comprehensive suite of logistics, sourcing, and supply chain solutions engineered for scale.
             </p>
           </motion.div>
@@ -54,19 +54,19 @@ export default function ServicesIndex() {
           >
             {servicesData.map((service, idx) => (
               <motion.div key={service.slug} variants={fadeUp} className="group h-full">
-                <Link href={`/services/${service.slug}`} className="block h-full glass-panel p-6 md:p-8 border border-white/10 hover:border-[#4F46E5]/50 hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+                <Link href={`/services/${service.slug}`} className="block h-full glass-panel p-6 md:p-8 border-theme border hover:border-[#4F46E5]/50 hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#4F46E5] to-transparent opacity-0 group-hover:opacity-10 rounded-tr-3xl transition-opacity duration-500"></div>
                   
-                  <div className="w-16 h-16 rounded-2xl bg-[#0B0F19] border border-white/10 flex items-center justify-center text-[#4F46E5] mb-8 group-hover:bg-[#4F46E5] group-hover:text-white transition-colors duration-500 shadow-xl">
+                  <div className="w-16 h-16 rounded-2xl border flex items-center justify-center text-[#4F46E5] mb-8 group-hover:bg-[#4F46E5] group-hover:text-white transition-colors duration-500 shadow-xl" style={{ background: "var(--pl-bg)", borderColor: "var(--pl-border)" }}>
                     {service.icon}
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-4 pr-4">{service.title}</h3>
-                  <p className="text-[#94A3B8] font-light leading-relaxed mb-8 line-clamp-3">
+                  <h3 className="text-2xl font-bold text-heading mb-4 pr-4">{service.title}</h3>
+                  <p className="text-body font-light leading-relaxed mb-8 line-clamp-3">
                     {service.description}
                   </p>
                   
-                  <div className="mt-auto flex items-center text-[#4F46E5] font-semibold text-sm uppercase tracking-wider group-hover:text-white transition-colors">
+                  <div className="mt-auto flex items-center text-[#4F46E5] font-semibold text-sm uppercase tracking-wider group-hover:text-heading transition-colors">
                     Explore Capability <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </Link>

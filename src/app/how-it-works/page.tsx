@@ -123,7 +123,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-white selection:bg-[#4F46E5] selection:text-white">
+    <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
       <PageHeader title="How It Works" breadcrumb="Process" />
 
@@ -138,7 +138,7 @@ export default function HowItWorks() {
             className="max-w-4xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6">A Streamlined, Transparent Process</h2>
-            <p className="text-lg md:text-xl text-[#94A3B8] font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-body font-light leading-relaxed">
               At Prime Link Global Services, we follow a streamlined, transparent, and efficient process to handle your product sourcing, importing, and delivery needs. Here is a step-by-step breakdown of how our service works:
             </p>
           </motion.div>
@@ -147,7 +147,7 @@ export default function HowItWorks() {
 
       {/* Massive Interactive Timeline */}
       <section className="py-12 pb-32 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-white/5 hidden lg:block"></div>
+
         
         <div className="container-custom relative">
           <div className="space-y-12 lg:space-y-0">
@@ -166,7 +166,7 @@ export default function HowItWorks() {
                     <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${step.color} to-transparent opacity-10 rounded-tr-3xl group-hover:opacity-30 transition-opacity`}></div>
                     
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-                      <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${step.color} to-transparent/10 flex-shrink-0 flex items-center justify-center border border-white/10 text-white shadow-lg`}>
+                      <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${step.color} to-transparent/10 flex-shrink-0 flex items-center justify-center border-theme border text-white shadow-lg`}>
                         {step.icon}
                       </div>
                       <h3 className="text-xl md:text-3xl font-bold leading-tight">{step.title}</h3>
@@ -174,7 +174,7 @@ export default function HowItWorks() {
 
                     <ul className="space-y-4">
                       {step.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-[#94A3B8] font-medium text-sm md:text-base">
+                        <li key={i} className="flex items-start gap-3 text-body font-medium text-sm md:text-base">
                           <CheckCircle size={18} className="text-[#4F46E5] flex-shrink-0 mt-0.5" />
                           <span className="leading-relaxed">{item}</span>
                         </li>
@@ -184,8 +184,8 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Center Node (Desktop only) */}
-                <div className="hidden lg:flex w-20 h-20 rounded-full bg-[#0B0F19] border-4 border-[#4F46E5] z-10 items-center justify-center absolute left-1/2 -translate-x-1/2 shadow-[0_0_40px_rgba(79,70,229,0.4)]">
-                  <span className="text-2xl font-black text-white">{step.step}</span>
+                <div className="hidden lg:flex w-20 h-20 rounded-full border-4 border-[#4F46E5] z-10 items-center justify-center absolute left-1/2 -translate-x-1/2 shadow-[0_0_40px_rgba(79,70,229,0.4)]" style={{ background: "var(--pl-bg)" }}>
+                  <span className="text-2xl font-black" style={{ color: "var(--pl-text-heading)" }}>{step.step}</span>
                 </div>
 
                 {/* Empty Side for layout */}
@@ -197,7 +197,7 @@ export default function HowItWorks() {
       </section>
 
       {/* Why Choose Our Process */}
-      <section className="py-24 bg-gradient-to-b from-[#111827] to-[#0B0F19] relative border-t border-white/5">
+      <section className="py-24 relative border-t" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
         <div className="container-custom">
           <motion.div 
             initial="hidden"
@@ -218,7 +218,7 @@ export default function HowItWorks() {
                   <div className="bg-[#4F46E5]/20 p-2 rounded-lg text-[#4F46E5]">
                     <CheckCircle size={24} />
                   </div>
-                  <p className="text-lg font-medium text-white">{reason}</p>
+                  <p className="text-lg font-medium text-heading">{reason}</p>
                 </div>
               ))}
             </div>

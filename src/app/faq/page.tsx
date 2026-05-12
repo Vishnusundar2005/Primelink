@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import FaqAccordion from "@/components/FaqAccordion";
+import SectionBackground from "@/components/SectionBackground";
 
 const faqData = [
   {
@@ -33,12 +34,12 @@ export default function Faq() {
   return (
     <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
-      <PageHeader title="Knowledge Base" breadcrumb="FAQ" />
+      <PageHeader title="Knowledge Base" breadcrumb="FAQ" imageUrl="/images/bg19.jpg" />
 
       {/* FAQ Section */}
       <section className="py-24 relative overflow-hidden">
         {/* Background Glow */}
-        <div className="glow-orb glow-orb-primary w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"></div>
+        <div className="glow-orb glow-orb-primary w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 z-10"></div>
         
         <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">

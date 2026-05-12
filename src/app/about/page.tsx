@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
+import SectionBackground from "@/components/SectionBackground";
 import { CheckCircle, Shield, TrendingUp, Users, Ship, Plane, Home as HomeIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -25,10 +26,12 @@ export default function About() {
   return (
     <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
-      <PageHeader title="About PrimeLink" breadcrumb="About Us" />
+      <PageHeader title="About PrimeLink" breadcrumb="About Us" imageUrl="/images/bg11.jpg" />
 
       {/* Main About Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden" style={{ background: "var(--pl-bg-alt)" }}>
+        {/* Subtle decorative orb instead of image */}
+        <div className="glow-orb glow-orb-primary w-[600px] h-[600px] -top-100 -left-100 opacity-10 z-0"></div>
         <div className="container-custom relative z-10">
           <motion.div 
             initial="hidden"
@@ -41,15 +44,33 @@ export default function About() {
               <div className="glow-orb glow-orb-primary w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
               <div className="col-span-1 space-y-4 pt-12">
                 <div className="relative h-[250px] rounded-3xl overflow-hidden border-theme border glass-panel">
-                  <Image src="/assets/images/service-main.jpg" alt="Logistics" fill className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" />
+                  <Image 
+                    src="/assets/images/service-main.jpg" 
+                    alt="Logistics" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
+                  />
                 </div>
                 <div className="relative h-[200px] rounded-3xl overflow-hidden border-theme border glass-panel">
-                  <Image src="/assets/images/service-1.jpg" alt="Shipping" fill className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" />
+                  <Image 
+                    src="/assets/images/service-1.jpg" 
+                    alt="Shipping" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
+                  />
                 </div>
               </div>
               <div className="col-span-1 space-y-4">
                 <div className="relative h-[300px] rounded-3xl overflow-hidden border-theme border glass-panel">
-                  <Image src="/assets/images/service-2.jpg" alt="Air Freight" fill className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" />
+                  <Image 
+                    src="/assets/images/service-2.jpg" 
+                    alt="Air Freight" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
+                  />
                 </div>
                 <div className="glass-panel p-6 rounded-3xl border-theme border bg-gradient-to-br from-[#4F46E5]/20 to-transparent flex flex-col justify-center items-center text-center h-[150px]">
                   <h3 className="text-4xl font-black text-heading">6+</h3>
@@ -92,7 +113,7 @@ export default function About() {
 
       {/* Specialist Services Preview */}
       <section className="py-24 relative border-y overflow-hidden" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
            <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -119,7 +140,13 @@ export default function About() {
                 className="glass-panel overflow-hidden group border" style={{ borderColor: "var(--pl-border)" }}
               >
                 <div className="h-40 md:h-48 relative overflow-hidden">
-                  <Image src={`/assets/images/${srv.img}`} alt={srv.title} fill className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
+                  <Image 
+                    src={`/assets/images/${srv.img}`} 
+                    alt={srv.title} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] to-transparent"></div>
                 </div>
                 <div className="p-6 md:p-8 relative -mt-10 md:-mt-12">
@@ -137,7 +164,7 @@ export default function About() {
 
       {/* Leadership Team */}
       <section className="py-24 md:py-32 relative overflow-hidden">
-        <div className="glow-orb glow-orb-amber w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"></div>
+        <div className="glow-orb glow-orb-amber w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 z-10"></div>
         <div className="container-custom relative z-10">
           <motion.div 
             initial="hidden"
@@ -169,6 +196,7 @@ export default function About() {
                     src={`/assets/images/${member.img}`}
                     alt={member.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
                     style={{ objectPosition: member.pos }}
                     className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />

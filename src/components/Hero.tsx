@@ -4,6 +4,7 @@ import { motion, Variants, useMotionValue, useSpring } from "framer-motion";
 import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Globe2, ShieldCheck, Box } from "lucide-react";
+import SectionBackground from "./SectionBackground";
 
 export default function Hero() {
   const mouseX = useMotionValue(0);
@@ -37,6 +38,8 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden" style={{ background: "var(--pl-bg)" }}>
+      <SectionBackground imageUrl="/images/bg16.jpg" gradient={true} overlayOpacity={65} />
+
       {/* Mouse Glow — desktop only */}
       <motion.div
         className="pointer-events-none absolute inset-0 z-10 opacity-30 hidden md:block"
@@ -46,12 +49,12 @@ export default function Hero() {
       />
 
       {/* Glowing Orbs */}
-      <div className="glow-orb glow-orb-primary w-[200px] h-[200px] md:w-[700px] md:h-[700px] top-[-10%] left-[-10%] opacity-30 md:opacity-50 pointer-events-none" />
-      <div className="glow-orb glow-orb-coral w-[150px] h-[150px] md:w-[500px] md:h-[500px] bottom-[-5%] right-[-5%] opacity-20 md:opacity-30 pointer-events-none" />
+      <div className="glow-orb glow-orb-primary w-[200px] h-[200px] md:w-[700px] md:h-[700px] top-[-10%] left-[-10%] opacity-30 md:opacity-50 pointer-events-none z-10" />
+      <div className="glow-orb glow-orb-coral w-[150px] h-[150px] md:w-[500px] md:h-[500px] bottom-[-5%] right-[-5%] opacity-20 md:opacity-30 pointer-events-none z-10" />
 
       {/* Grid Pattern */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.07] pointer-events-none"
+        className="absolute inset-0 z-10 opacity-[0.07] pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(circle at 2px 2px, var(--pl-text-heading) 1px, transparent 0)",
           backgroundSize: "40px 40px",
@@ -78,7 +81,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B6B] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6B6B]" />
               </span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wide uppercase text-heading">
+              <span className="text-xs sm:text-sm font-semibold tracking-wide uppercase text-on-bg">
                 Next-Gen Global Logistics
               </span>
             </motion.div>
@@ -86,7 +89,7 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold mb-5 leading-[1.1] tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold mb-5 leading-[1.1] tracking-tight text-on-bg"
             >
               Mastering{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] via-[#A855F7] to-[#FF6B6B]">
@@ -98,10 +101,10 @@ export default function Hero() {
             {/* Subtext */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-body mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
+              className="text-base sm:text-lg md:text-xl mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium text-on-bg-muted"
             >
               We handle everything from{" "}
-              <strong className="text-heading font-semibold">A to Z</strong>. From
+              <strong className="text-on-bg font-semibold">A to Z</strong>. From
               sourcing premium products to delivering them safely to your doorstep
               anywhere in India.
             </motion.p>
@@ -127,16 +130,16 @@ export default function Hero() {
               style={{ borderColor: "var(--pl-border)" }}
             >
               <div>
-                <h4 className="text-2xl sm:text-3xl font-black text-heading mb-0.5">6+</h4>
-                <p className="text-xs text-body uppercase tracking-wider font-semibold">Years Exp.</p>
+                <h4 className="text-2xl sm:text-3xl font-black text-on-bg mb-0.5">6+</h4>
+                <p className="text-xs text-on-bg-muted uppercase tracking-wider font-semibold">Years Exp.</p>
               </div>
               <div>
-                <h4 className="text-2xl sm:text-3xl font-black text-heading mb-0.5">1143+</h4>
-                <p className="text-xs text-body uppercase tracking-wider font-semibold">Shipments</p>
+                <h4 className="text-2xl sm:text-3xl font-black text-on-bg mb-0.5">1143+</h4>
+                <p className="text-xs text-on-bg-muted uppercase tracking-wider font-semibold">Shipments</p>
               </div>
               <div>
-                <h4 className="text-2xl sm:text-3xl font-black text-[#FF6B6B] mb-0.5">100%</h4>
-                <p className="text-xs text-body uppercase tracking-wider font-semibold">Satisfaction</p>
+                <h4 className="text-2xl sm:text-3xl font-black text-[#FF6B6B] mb-0.5 text-on-bg">100%</h4>
+                <p className="text-xs text-on-bg-muted uppercase tracking-wider font-semibold">Satisfaction</p>
               </div>
             </motion.div>
           </motion.div>

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
+import SectionBackground from "@/components/SectionBackground";
 import { servicesData } from "@/data/services";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -26,10 +27,10 @@ export default function ServicesIndex() {
   return (
     <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
-      <PageHeader title="Global Services" breadcrumb="Services Index" />
+      <PageHeader title="Global Services" breadcrumb="Services Index" imageUrl="/images/bg16.jpg" />
 
-      <section className="py-24 relative overflow-hidden">
-        <div className="glow-orb glow-orb-primary w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none"></div>
+      <section className="py-24 relative overflow-hidden" style={{ background: "var(--pl-bg-alt)" }}>
+        <div className="glow-orb glow-orb-primary w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none z-10"></div>
 
         <div className="container-custom relative z-10">
           <motion.div 
@@ -39,7 +40,7 @@ export default function ServicesIndex() {
             variants={fadeUp}
             className="text-center max-w-3xl mx-auto mb-20"
           >
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Specialist Capabilities</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-heading">Specialist Capabilities</h2>
             <p className="text-lg md:text-xl text-body font-light leading-relaxed">
               Explore our comprehensive suite of logistics, sourcing, and supply chain solutions engineered for scale.
             </p>

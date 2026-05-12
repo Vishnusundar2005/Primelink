@@ -64,8 +64,8 @@ html.light {
   --pl-text-body: #475569;
   --pl-text-muted: #94A3B8;
   --pl-nav-bg-scrolled: rgba(248, 250, 252, 0.95);
-  --pl-nav-text: #475569;
-  --pl-nav-text-hover: #0F172A;
+  --pl-nav-text: #0F172A;
+  --pl-nav-text-hover: #4F46E5;
   --pl-mobile-panel: #FFFFFF;
   --pl-glass-bg: rgba(0, 0, 0, 0.04);
   --pl-glass-border: rgba(0, 0, 0, 0.08);
@@ -103,6 +103,8 @@ html.light {
 .border-theme-strong { border-color: var(--pl-border-strong) !important; }
 .bg-surface    { background: var(--pl-surface) !important; }
 .bg-glass      { background: var(--pl-glass-bg) !important; }
+.text-on-bg    { color: #ffffff !important; text-shadow: 0 4px 20px rgba(0,0,0,0.6) !important; }
+.text-on-bg-muted { color: rgba(255, 255, 255, 0.8) !important; font-weight: 500; }
 
 html {
   overflow-x: hidden;
@@ -239,7 +241,7 @@ h6 { font-size: 1rem; }
   border-radius: 9999px;
   font-weight: 700;
   font-size: 0.9375rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -250,7 +252,8 @@ h6 { font-size: 1rem; }
 
 .btn-glass:hover {
   background: var(--pl-card-hover);
-  border-color: var(--pl-border-strong);
+  border-color: #4F46E5;
+  color: #4F46E5;
   transform: translateY(-1px);
 }
 

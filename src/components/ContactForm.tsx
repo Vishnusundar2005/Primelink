@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Send, User, Building, Phone, Mail, MessageSquare, CheckCircle } from "lucide-react";
+import SectionBackground from "./SectionBackground";
 
 const WHATSAPP_NUMBER = "918220625251"; // PrimeLink WhatsApp number
 
@@ -55,8 +56,9 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: "var(--pl-bg)" }}>
-      <div className="glow-orb glow-orb-coral w-[400px] h-[400px] md:w-[600px] md:h-[600px] top-0 right-0 opacity-20" />
+    <section className="py-20 md:py-32 relative overflow-hidden">
+      <SectionBackground imageUrl="/images/bg7.jpg" overlayOpacity={60} />
+      <div className="glow-orb glow-orb-coral w-[400px] h-[400px] md:w-[600px] md:h-[600px] top-0 right-0 opacity-20 z-10" />
 
       <div className="container-custom relative z-10">
         <div className="glass-panel overflow-hidden flex flex-col lg:flex-row shadow-2xl border-theme border">
@@ -127,7 +129,7 @@ export default function ContactForm() {
                 </div>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="mt-4 text-[#4F46E5] font-bold hover:text-heading transition-colors tracking-wide uppercase text-sm border border-[#4F46E5]/40 px-6 py-2 rounded-full"
+                  className="mt-4 btn-glass px-8 py-2.5"
                 >
                   Send Another Message
                 </button>

@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import { servicesData } from "@/data/services";
+import SectionBackground from "@/components/SectionBackground";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,11 +37,11 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
   return (
     <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
-      <PageHeader title={service.title} breadcrumb="Services" />
+      <PageHeader title={service.title} breadcrumb="Services" imageUrl={service.bgImage} />
 
       <section className="py-24 relative overflow-hidden">
         {/* Dynamic Background Glow */}
-        <div className="glow-orb glow-orb-primary w-[800px] h-[800px] top-0 left-1/2 -translate-x-1/2 opacity-10 pointer-events-none"></div>
+        <div className="glow-orb glow-orb-primary w-[800px] h-[800px] top-0 left-1/2 -translate-x-1/2 opacity-10 pointer-events-none z-10"></div>
 
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row gap-16">
@@ -59,6 +60,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                     src={`/assets/images/${service.image}`} 
                     alt={service.title} 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 66vw"
                     className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/50 to-transparent"></div>

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
+import SectionBackground from "@/components/SectionBackground";
 import { CheckCircle, MessageSquare, Search, Beaker, CreditCard, Activity, ShieldCheck, Ship, FileCheck, MapPin, Wrench } from "lucide-react";
 
 const processSteps = [
@@ -125,11 +126,11 @@ export default function HowItWorks() {
   return (
     <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
-      <PageHeader title="How It Works" breadcrumb="Process" />
+      <PageHeader title="How It Works" breadcrumb="Process" imageUrl="/images/bg17.jpg" />
 
       {/* Intro Section */}
       <section className="py-24 relative overflow-hidden">
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -147,9 +148,9 @@ export default function HowItWorks() {
 
       {/* Massive Interactive Timeline */}
       <section className="py-12 pb-32 relative overflow-hidden">
-
+        <SectionBackground imageUrl="/images/bg21.jpg" />
         
-        <div className="container-custom relative">
+        <div className="container-custom relative z-10">
           <div className="space-y-12 lg:space-y-0">
             {processSteps.map((step, idx) => (
               <motion.div 
@@ -198,7 +199,7 @@ export default function HowItWorks() {
 
       {/* Why Choose Our Process */}
       <section className="py-24 relative border-t" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"

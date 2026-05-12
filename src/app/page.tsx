@@ -5,9 +5,13 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import SectionBackground from "@/components/SectionBackground";
 import { ChevronRight, Shield, CheckCircle, Zap, Headphones, Globe2, TrendingUp, PackageSearch, PlaneTakeoff, Ship } from "lucide-react";
 
+import { useTheme } from "@/components/ThemeProvider";
+
 export default function Home() {
+  const { theme } = useTheme();
   const fadeUp: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -28,7 +32,6 @@ export default function Home() {
       
       {/* Animated Metrics / About - Bento Grid */}
       <section className="py-32 relative overflow-hidden">
-
         <div className="container-custom relative z-10">
           <motion.div 
             initial="hidden"
@@ -98,7 +101,8 @@ export default function Home() {
 
       {/* Futuristic Services Section */}
       <section className="py-32 relative">
-        <div className="glow-orb glow-orb-primary w-[1000px] h-[1000px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"></div>
+        <SectionBackground imageUrl="/images/bg22.jpg" />
+        <div className="glow-orb glow-orb-primary w-[1000px] h-[1000px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 z-10"></div>
         
         <div className="container-custom relative z-10">
           <motion.div 
@@ -108,8 +112,8 @@ export default function Home() {
             variants={fadeUp}
             className="text-center max-w-4xl mx-auto mb-24"
           >
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-6">Our Core Capabilities</h2>
-            <p className="text-xl text-body font-light">From factory floor to your front door, we handle the friction so you can focus on scale.</p>
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-on-bg">Our Core Capabilities</h2>
+            <p className="text-xl font-medium text-on-bg-muted">From factory floor to your front door, we handle the friction so you can focus on scale.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -146,7 +150,7 @@ export default function Home() {
 
       {/* Animated Process Timeline */}
       <section className="py-32 relative border-y" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
            <motion.div 
             initial="hidden"
             whileInView="visible"

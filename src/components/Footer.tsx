@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, Phone, Mail, MapPin, Clock, Globe, ArrowUpRight } from "lucide-react";
+import SectionBackground from "./SectionBackground";
 
 export default function Footer() {
   return (
     <footer className="pt-32 pb-10 border-t relative overflow-hidden" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)", borderColor: "var(--pl-border)" }}>
       {/* Background Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#4F46E5]/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#4F46E5]/5 blur-[120px] rounded-full pointer-events-none z-10"></div>
 
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">

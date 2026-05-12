@@ -6,11 +6,14 @@ import Image from "next/image";
 import { Menu, X, ChevronDown, ArrowRight, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "./ThemeProvider";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "How It Works", href: "/how-it-works" },
   { name: "About Us", href: "/about" },
+  { name: "Industry", href: "/industry" },
+  { name: "Residential", href: "/residential" },
   {
     name: "Services",
     href: "#",
@@ -78,7 +81,17 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const { theme } = useTheme();
+  const pathname = usePathname();
   const isDark = theme === "dark";
+  const isHome = pathname === "/";
+
+  const isIndustry = pathname === "/industry";
+
+  // Always white at the top for consistent branding (matches Home page look)
+  const getNavTextColor = () => {
+    if (isScrolled) return isDark ? "#ffffff" : "#0F172A";
+    return "#ffffff";
+  };
 
   // Scroll listener
   useEffect(() => {
@@ -141,7 +154,7 @@ export default function Navbar() {
                 width={0}
                 sizes="140px"
                 className="transition-all duration-300 object-contain w-auto"
-                style={{ filter: "var(--pl-logo-filter)" }}
+                style={{ filter: getNavTextColor() === "#ffffff" ? "brightness(0) invert(1)" : "var(--pl-logo-filter)" }}
                 priority
               />
             </div>
@@ -150,76 +163,78 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
-              <div
-                key={link.name}
-                className="relative group"
-                onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
-                onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
-              >
-                {link.dropdown ? (
-                  <>
-                    <button
-                      className="flex items-center gap-1.5 font-semibold text-sm tracking-wide transition-colors py-2 whitespace-nowrap"
-                      style={{ color: "var(--pl-nav-text)" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--pl-nav-text-hover)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--pl-nav-text)")}
-                    >
-                      {link.name}
-                      <ChevronDown
-                        size={14}
-                        className={cn(
-                          "transition-transform duration-300",
-                          activeDropdown === link.name && "rotate-180"
-                        )}
-                      />
-                    </button>
-                    <div
-                      className={cn(
-                        "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 backdrop-blur-2xl border rounded-2xl shadow-2xl py-2 transition-all duration-200 origin-top",
-                        activeDropdown === link.name
-                          ? "opacity-100 scale-100 visible pointer-events-auto"
-                          : "opacity-0 scale-95 invisible pointer-events-none"
-                      )}
-                      style={{
-                        background: isDark ? "rgba(17, 24, 39, 0.95)" : "rgba(255,255,255,0.97)",
-                        borderColor: "var(--pl-border)",
-                      }}
-                    >
-                      <div className="flex flex-col">
-                        {link.dropdown.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            href={sub.href}
-                            onClick={() => setActiveDropdown(null)}
-                            className="px-5 py-2.5 text-sm font-medium transition-colors"
-                            style={{ color: "var(--pl-nav-text)" }}
-                            onMouseEnter={(e) => {
-                              (e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text-hover)";
-                              (e.currentTarget as HTMLAnchorElement).style.background = "var(--pl-card-hover)";
-                            }}
-                            onMouseLeave={(e) => {
-                              (e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text)";
-                              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-                            }}
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className="font-semibold text-sm tracking-wide transition-colors whitespace-nowrap"
-                    style={{ color: "var(--pl-nav-text)" }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text-hover)")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text)")}
+                  <div
+                    key={link.name}
+                    className="relative group"
+                    onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
+                    onMouseLeave={() => link.dropdown && setActiveDropdown(null)}
                   >
-                    {link.name}
-                  </Link>
-                )}
-              </div>
+                    {link.dropdown ? (
+                      <>
+                        <button
+                          className="flex items-center gap-1.5 font-bold text-sm tracking-wide transition-colors py-2 whitespace-nowrap"
+                          style={{ 
+                            color: getNavTextColor(),
+                            textShadow: getNavTextColor() === "#ffffff" ? "0 2px 10px rgba(0,0,0,0.3)" : "none" 
+                          }}
+                        >
+                          {link.name}
+                          <ChevronDown
+                            size={14}
+                            className={cn(
+                              "transition-transform duration-300",
+                              activeDropdown === link.name && "rotate-180"
+                            )}
+                          />
+                        </button>
+                        <div
+                          className={cn(
+                            "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 backdrop-blur-2xl border rounded-2xl shadow-2xl py-2 transition-all duration-200 origin-top",
+                            activeDropdown === link.name
+                              ? "opacity-100 scale-100 visible pointer-events-auto"
+                              : "opacity-0 scale-95 invisible pointer-events-none"
+                          )}
+                          style={{
+                            background: isDark ? "rgba(17, 24, 39, 0.95)" : "rgba(255,255,255,0.97)",
+                            borderColor: "var(--pl-border)",
+                          }}
+                        >
+                          <div className="flex flex-col">
+                            {link.dropdown.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sub.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="px-5 py-2.5 text-sm font-medium transition-colors"
+                                style={{ color: "var(--pl-nav-text)" }}
+                                onMouseEnter={(e) => {
+                                  (e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text-hover)";
+                                  (e.currentTarget as HTMLAnchorElement).style.background = "var(--pl-card-hover)";
+                                }}
+                                onMouseLeave={(e) => {
+                                  (e.currentTarget as HTMLAnchorElement).style.color = "var(--pl-nav-text)";
+                                  (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                                }}
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="font-bold text-sm tracking-wide transition-colors whitespace-nowrap"
+                        style={{ 
+                          color: getNavTextColor(),
+                          textShadow: getNavTextColor() === "#ffffff" ? "0 2px 10px rgba(0,0,0,0.3)" : "none"
+                        }}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </div>
             ))}
 
             {/* Theme Toggle — desktop */}

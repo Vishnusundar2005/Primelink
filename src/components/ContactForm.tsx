@@ -56,15 +56,15 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
-      <SectionBackground imageUrl="/images/bg7.jpg" overlayOpacity={60} />
+    <section className="py-16 md:py-32 relative">
+      <SectionBackground imageUrl="/images/CF2.jpg" overlayOpacity={60} fixed={true} objectPosition="right center" mobileObjectPosition="right center" />
       <div className="glow-orb glow-orb-coral w-[400px] h-[400px] md:w-[600px] md:h-[600px] top-0 right-0 opacity-20 z-10" />
 
-      <div className="container-custom relative z-10">
-        <div className="glass-panel overflow-hidden flex flex-col lg:flex-row shadow-2xl border-theme border">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="glass-panel overflow-hidden flex flex-col lg:flex-row shadow-2xl border-theme border w-full max-w-6xl mx-auto">
 
           {/* ── Left info panel ── */}
-          <div className="w-full lg:w-2/5 p-8 md:p-12 relative overflow-hidden border-b lg:border-b-0 lg:border-r" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
+          <div className="w-full lg:w-2/5 p-8 md:p-12 relative overflow-hidden border-b lg:border-b-0 lg:border-r backdrop-blur-md" style={{ background: "rgba(var(--pl-bg-rgb), 0.7)", borderColor: "var(--pl-border)" }}>
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4 relative z-10">Get In Touch</h2>
             <p className="text-body mb-8 relative z-10 leading-relaxed text-base md:text-lg font-light">
               Fill the form and we'll send your details directly to our team on WhatsApp for a fast response.
@@ -111,7 +111,7 @@ export default function ContactForm() {
           </div>
 
           {/* ── Right form panel ── */}
-          <div className="w-full lg:w-3/5 p-6 sm:p-10 md:p-12 relative" style={{ background: "var(--pl-surface)" }}>
+          <div className="w-full lg:w-3/5 p-6 sm:p-10 md:p-12 relative backdrop-blur-sm" style={{ background: "rgba(var(--pl-surface-rgb), 0.5)" }}>
             {status === "success" ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

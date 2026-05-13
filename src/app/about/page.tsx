@@ -49,7 +49,7 @@ export default function About() {
                     alt="Logistics" 
                     fill 
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
+                    className="object-cover object-center opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
                   />
                 </div>
                 <div className="relative h-[200px] rounded-3xl overflow-hidden border-theme border glass-panel">
@@ -58,7 +58,7 @@ export default function About() {
                     alt="Shipping" 
                     fill 
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
+                    className="object-cover object-center opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
                   />
                 </div>
               </div>
@@ -69,7 +69,7 @@ export default function About() {
                     alt="Air Freight" 
                     fill 
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
+                    className="object-cover object-center opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" 
                   />
                 </div>
                 <div className="glass-panel p-6 rounded-3xl border-theme border bg-gradient-to-br from-[#4F46E5]/20 to-transparent flex flex-col justify-center items-center text-center h-[150px]">
@@ -145,7 +145,7 @@ export default function About() {
                     alt={srv.title} 
                     fill 
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
+                    className="object-cover object-center opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] to-transparent"></div>
                 </div>

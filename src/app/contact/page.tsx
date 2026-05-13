@@ -25,7 +25,7 @@ export default function Contact() {
   return (
     <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
-      <PageHeader title="Contact Operations" breadcrumb="Contact Us" imageUrl="/images/bg20.jpg" />
+      <PageHeader title="Contact Operations" breadcrumb="Contact Us" imageUrl="/images/bg14.jpg" />
 
       {/* Contact Info Cards */}
       <section className="py-24 relative overflow-hidden">
@@ -100,17 +100,38 @@ export default function Contact() {
       {/* Contact Form Section */}
       <ContactForm />
 
-      {/* Massive Map Section */}
-      <section className="relative h-[400px] md:h-[600px] w-full border-t grayscale hover:grayscale-0 transition-all duration-1000" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
-        <SectionBackground imageUrl="/images/bg7.jpg" />
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.6693488023126!2d76.9921835!3d11.0811496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f778a01e50bf%3A0x6d3b57883c6f9af2!2sPrime%20Link%20Global%20Services!5e0!3m2!1sen!2sin!4v1716188512345!5m2!1sen!2sin" 
-          className="w-full h-full border-0 grayscale opacity-80 z-10 relative"
-          allowFullScreen
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ background: "var(--pl-bg-alt)" }}></div>
+      {/* Enhanced Map Section */}
+      <section className="py-12 md:py-20 relative">
+        <div className="container-custom relative z-10">
+          <div className="glass-panel overflow-hidden border-theme border rounded-[40px] shadow-2xl h-[300px] md:h-[450px] relative group">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.6693488023126!2d76.9921835!3d11.0811496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f778a01e50bf%3A0x6d3b57883c6f9af2!2sPrime%20Link%20Global%20Services!5e0!3m2!1sen!2sin!4v1716188512345!5m2!1sen!2sin" 
+              className="w-full h-full border-0 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 z-10 relative"
+              allowFullScreen
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            
+            {/* Floating Map Detail Element */}
+            <div className="absolute top-8 left-8 z-20 hidden md:block">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="glass-panel p-5 pr-8 border-theme border flex items-center gap-4 shadow-2xl backdrop-blur-xl"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#4F46E5] flex items-center justify-center text-white shadow-[0_0_15px_rgba(79,70,229,0.4)]">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h5 className="font-bold text-heading text-sm uppercase tracking-wider mb-0.5">Global HQ</h5>
+                  <p className="text-body text-xs font-medium">Nagercoil, Tamil Nadu, India</p>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19]/20 to-transparent pointer-events-none z-10"></div>
+          </div>
+        </div>
       </section>
 
       <Footer />

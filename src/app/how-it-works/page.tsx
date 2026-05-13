@@ -131,7 +131,7 @@ export default function HowItWorks() {
       {/* Intro Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="container-custom relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -148,12 +148,12 @@ export default function HowItWorks() {
 
       {/* Massive Interactive Timeline */}
       <section className="py-12 pb-32 relative overflow-hidden">
-        <SectionBackground imageUrl="/images/bg21.jpg" />
-        
+        <SectionBackground imageUrl="/images/HIW.jpg" objectPosition="center" />
+
         <div className="container-custom relative z-10">
           <div className="space-y-12 lg:space-y-0">
             {processSteps.map((step, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ export default function HowItWorks() {
                 <div className={`w-full lg:w-1/2 flex ${idx % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'}`}>
                   <div className="glass-panel p-6 md:p-10 relative overflow-hidden group w-full max-w-xl hover:border-[#4F46E5]/50 transition-colors">
                     <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${step.color} to-transparent opacity-10 rounded-tr-3xl group-hover:opacity-30 transition-opacity`}></div>
-                    
+
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                       <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${step.color} to-transparent/10 flex-shrink-0 flex items-center justify-center border-theme border text-white shadow-lg`}>
                         {step.icon}
@@ -200,7 +200,7 @@ export default function HowItWorks() {
       {/* Why Choose Our Process */}
       <section className="py-24 relative border-t" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
         <div className="container-custom relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

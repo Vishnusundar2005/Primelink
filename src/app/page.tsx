@@ -29,11 +29,11 @@ export default function Home() {
     <main className="min-h-screen selection:bg-[#4F46E5] selection:text-white" style={{ background: "var(--pl-bg)", color: "var(--pl-text-body)" }}>
       <Navbar />
       <Hero />
-      
+
       {/* Animated Metrics / About - Bento Grid */}
       <section className="py-32 relative overflow-hidden">
         <div className="container-custom relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -52,14 +52,14 @@ export default function Home() {
               <p className="text-xl text-body leading-relaxed mb-10 font-light">
                 We are more than just a freight forwarder. We are your end-to-end strategic partner, turning complex supply chains into your competitive advantage.
               </p>
-              
+
               <ul className="space-y-6 mb-10">
                 {[
                   "1,143+ Shipments successfully completed worldwide.",
                   "Verified supplier network with strict QA protocols.",
                   "Zero hidden fees. 100% transparent tracking."
                 ].map((item, idx) => (
-                  <motion.li 
+                  <motion.li
                     key={idx}
                     variants={fadeUp}
                     className="flex items-center gap-4 text-lg text-heading font-medium"
@@ -81,7 +81,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold mb-2">Global Network</h3>
                 <p className="text-body">Operating across major trade routes with hyper-local expertise.</p>
               </motion.div>
-              
+
               <motion.div variants={fadeUp} className="glass-panel p-8 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B6B]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <TrendingUp size={40} className="text-[#FF6B6B] mb-6" />
@@ -101,11 +101,11 @@ export default function Home() {
 
       {/* Futuristic Services Section */}
       <section className="py-32 relative">
-        <SectionBackground imageUrl="/images/bg22.jpg" />
+        <SectionBackground imageUrl="/images/Core.jpg" gradient={true} overlayOpacity={55} objectPosition="center" mobileObjectPosition="center" fixed={true} />
         <div className="glow-orb glow-orb-primary w-[1000px] h-[1000px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 z-10"></div>
-        
+
         <div className="container-custom relative z-10">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -125,7 +125,7 @@ export default function Home() {
               { title: "Secure Escrow", icon: <CheckCircle size={32} />, color: "from-[#8B5CF6]", desc: "Milestone-based fund releases to eliminate supplier fraud." },
               { title: "Warehousing", icon: <Zap size={32} />, color: "from-[#06B6D4]", desc: "Strategic staging, labeling, and last-mile distribution." }
             ].map((service, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export default function Home() {
       {/* Animated Process Timeline */}
       <section className="py-32 relative border-y" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
         <div className="container-custom relative z-10">
-           <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -174,7 +174,7 @@ export default function Home() {
                 { step: "04", title: "Production Oversight", desc: "On-site and remote monitoring to prevent delays and quality fade." },
                 { step: "05", title: "Logistics Execution", desc: "Seamless transfer from factory floor to container vessel with real-time tracking." }
               ].map((item, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -187,18 +187,18 @@ export default function Home() {
                     <h4 className="text-2xl font-bold mb-4">{item.title}</h4>
                     <p className="text-body text-lg">{item.desc}</p>
                   </div>
-                  
+
                   <div className="hidden lg:flex w-16 h-16 rounded-full border-4 border-[#4F46E5] z-10 items-center justify-center relative shadow-[0_0_30px_rgba(79,70,229,0.5)]" style={{ background: "var(--pl-bg-alt)" }}>
                     <span className="font-bold" style={{ color: "var(--pl-text-heading)" }}>{item.step}</span>
                   </div>
-                  
+
                   <div className="w-full lg:w-1/2 hidden lg:block"></div>
                 </motion.div>
               ))}
             </div>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

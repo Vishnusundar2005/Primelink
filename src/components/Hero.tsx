@@ -37,7 +37,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden" style={{ background: "var(--pl-bg)" }}>
+    <section className="relative min-h-screen flex items-center pt-24 pb-16 md:pt-32 md:pb-24" style={{ background: "var(--pl-bg)" }}>
       <SectionBackground imageUrl="/images/bg16.jpg" gradient={true} overlayOpacity={65} />
 
       {/* Mouse Glow — desktop only */}
@@ -89,7 +89,7 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-extrabold mb-5 leading-[1.1] tracking-tight text-on-bg"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-5 leading-[1.1] tracking-tight text-on-bg"
             >
               Mastering{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] via-[#A855F7] to-[#FF6B6B]">
@@ -101,7 +101,7 @@ export default function Hero() {
             {/* Subtext */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium text-on-bg-muted"
+              className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium text-on-bg-muted"
             >
               We handle everything from{" "}
               <strong className="text-on-bg font-semibold">A to Z</strong>. From
@@ -112,7 +112,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 mb-12 items-center justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 mb-8 md:mb-12 items-center justify-center lg:justify-start"
             >
               <Link href="/about" className="btn-primary group text-base w-full sm:w-auto">
                 Explore Solutions

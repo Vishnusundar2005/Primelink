@@ -32,6 +32,7 @@ export default function Home() {
 
       {/* Animated Metrics / About - Bento Grid */}
       <section className="py-32 relative overflow-hidden">
+        <SectionBackground imageUrl="/images/Home2.png" gradient={true} overlayOpacity={45} />
         <div className="container-custom relative z-10">
           <motion.div
             initial="hidden"
@@ -42,14 +43,14 @@ export default function Home() {
           >
             {/* Left Column: Text */}
             <motion.div variants={fadeUp} className="w-full lg:w-1/2 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border backdrop-blur-md mb-8 w-fit" style={{ borderColor: "var(--pl-border)", background: "var(--pl-glass-bg)" }}>
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-8 w-fit">
                 <span className="w-2 h-2 rounded-full bg-[#FF6B6B] animate-pulse"></span>
-                <span className="text-xs font-semibold tracking-widest uppercase text-body">The PrimeLink Advantage</span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-on-bg">The PrimeLink Advantage</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight text-on-bg">
                 Redefining the standard of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#FF6B6B]">Global Logistics.</span>
               </h2>
-              <p className="text-xl text-body leading-relaxed mb-10 font-light">
+              <p className="text-xl text-on-bg-muted leading-relaxed mb-10 font-light">
                 We are more than just a freight forwarder. We are your end-to-end strategic partner, turning complex supply chains into your competitive advantage.
               </p>
 
@@ -62,7 +63,7 @@ export default function Home() {
                   <motion.li
                     key={idx}
                     variants={fadeUp}
-                    className="flex items-center gap-4 text-lg text-heading font-medium"
+                    className="flex items-center gap-4 text-lg text-on-bg font-medium"
                   >
                     <div className="w-8 h-8 rounded-full bg-[#4F46E5]/20 flex items-center justify-center border border-[#4F46E5]/50 flex-shrink-0">
                       <CheckCircle size={16} className="text-[#4F46E5]" />

@@ -13,6 +13,7 @@ interface SectionBackgroundProps {
   priority?: boolean;
   parallax?: boolean;
   fixed?: boolean;
+  className?: string;
 }
 
 export default function SectionBackground({
@@ -25,7 +26,8 @@ export default function SectionBackground({
   mobileObjectPosition,
   priority = false,
   parallax = true,
-  fixed = false
+  fixed = false,
+  className = ""
 }: SectionBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -50,10 +52,10 @@ export default function SectionBackground({
   const effectiveObjectPosition = isMobile && mobileObjectPosition ? mobileObjectPosition : objectPosition;
 
   return (
-    <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none">
+    <div ref={containerRef} className={`absolute inset-0 pointer-events-none ${className}`}>
       <div className={fixed && !isMobile ? "sticky top-0 h-screen w-full overflow-hidden" : "absolute inset-0 overflow-hidden"}>
         <motion.div
-          className="absolute inset-0 transition-opacity duration-1000"
+          className="absolute inset-0"
           style={{
             opacity: opacity / 100,
             y: parallax && !shouldReduceMotion && !(fixed && !isMobile) ? y : 0,
@@ -70,18 +72,18 @@ export default function SectionBackground({
             quality={75}
           />
         </motion.div>
+        
+        {/* Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: gradient
+              ? "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%)"
+              : `rgba(0,0,0,${overlayOpacity / 100})`,
+            backdropFilter: blur > 0 ? `blur(${blur}px)` : 'none'
+          }}
+        />
       </div>
-
-      {/* Overlay to ensure text readability */}
-      <div
-        className="absolute inset-0 transition-all duration-500"
-        style={{
-          background: gradient
-            ? "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%)"
-            : `rgba(0,0,0,${overlayOpacity / 100})`,
-          backdropFilter: blur > 0 ? `blur(${blur}px)` : 'none'
-        }}
-      />
     </div>
   );
 }

@@ -45,7 +45,16 @@ export default function Industry() {
       <Navbar />
 
       {/* Hero Content / Overview */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden" style={{ 
+        background: "#0B0F19",
+        colorScheme: 'dark',
+        '--pl-text-heading': '#F8FAFC',
+        '--pl-text-body': '#94A3B8',
+        '--pl-text-muted': '#64748B',
+        '--pl-bg-rgb': '11, 15, 25',
+        '--pl-surface-rgb': '17, 24, 39',
+        '--pl-border': 'rgba(255, 255, 255, 0.08)',
+      } as any}>
         <SectionBackground imageUrl="/images/bg9.jpg" overlayOpacity={60} priority={true} objectPosition="center" />
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -106,7 +115,7 @@ export default function Industry() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent"></div>
 
                 {/* Floating Detail */}
-                <div className="absolute bottom-10 left-10 right-10 glass-panel p-8 backdrop-blur-2xl">
+                <div className="absolute bottom-10 left-10 right-10 glass-panel p-8 backdrop-blur-xl border-white/10" style={{ background: "rgba(15, 23, 42, 0.6)" }}>
                   <Factory className="text-[#4F46E5] mb-4" size={40} />
                   <h3 className="text-2xl font-bold text-white mb-2">Smart Manufacturing</h3>
                   <p className="text-white/70 text-sm">Industry 4.0 enabled factory solutions engineered for future scale.</p>

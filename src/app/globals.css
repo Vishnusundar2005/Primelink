@@ -24,8 +24,10 @@
 ═══════════════════════════════ */
 :root {
   --pl-bg: #0B0F19;
+  --pl-bg-rgb: 11, 15, 25;
   --pl-bg-alt: #111827;
   --pl-surface: rgba(17, 24, 39, 0.6);
+  --pl-surface-rgb: 17, 24, 39;
   --pl-surface-solid: #111827;
   --pl-border: rgba(255, 255, 255, 0.08);
   --pl-border-strong: rgba(255, 255, 255, 0.15);
@@ -55,8 +57,10 @@
 ═══════════════════════════════ */
 html.light {
   --pl-bg: #F8FAFC;
+  --pl-bg-rgb: 248, 250, 252;
   --pl-bg-alt: #EFF3F8;
   --pl-surface: rgba(255, 255, 255, 0.75);
+  --pl-surface-rgb: 255, 255, 255;
   --pl-surface-solid: #FFFFFF;
   --pl-border: rgba(0, 0, 0, 0.08);
   --pl-border-strong: rgba(0, 0, 0, 0.15);
@@ -233,8 +237,8 @@ h6 { font-size: 1rem; }
 
 .btn-glass {
   background: var(--pl-glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--pl-glass-border);
   color: var(--pl-text-heading);
   padding: 0.8rem 2rem;
@@ -262,8 +266,8 @@ h6 { font-size: 1rem; }
 ═══════════════════════════════ */
 .glass-panel {
   background-color: var(--pl-surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--pl-border);
   border-radius: 1.5rem;
   transition: background 0.3s ease, border-color 0.3s ease;
@@ -275,7 +279,7 @@ h6 { font-size: 1rem; }
 .glow-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(60px);
   z-index: 0;
   pointer-events: none;
 }

@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Send, User, Building, Phone, Mail, MessageSquare, CheckCircle } from "lucide-react";
+import { User, Building, Phone, Mail, MessageSquare, CheckCircle } from "lucide-react";
 import SectionBackground from "./SectionBackground";
 
 const WHATSAPP_NUMBER = "918220625251"; // PrimeLink WhatsApp number
@@ -57,14 +57,26 @@ export default function ContactForm() {
 
   return (
     <section className="py-16 md:py-32 relative">
-      <SectionBackground imageUrl="/images/CF2.jpg" overlayOpacity={60} fixed={true} objectPosition="right center" mobileObjectPosition="right center" />
+      <SectionBackground imageUrl="/images/Home3.png" overlayOpacity={60} fixed={true} objectPosition="right center" mobileObjectPosition="right center" />
       <div className="glow-orb glow-orb-coral w-[400px] h-[400px] md:w-[600px] md:h-[600px] top-0 right-0 opacity-20 z-10" />
 
-      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="glass-panel overflow-hidden flex flex-col lg:flex-row shadow-2xl border-theme border w-full max-w-6xl mx-auto">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8" style={{ 
+        colorScheme: 'dark',
+        '--pl-text-heading': '#F8FAFC',
+        '--pl-text-body': '#94A3B8',
+        '--pl-text-muted': '#64748B',
+        '--pl-bg-rgb': '11, 15, 25',
+        '--pl-surface-rgb': '17, 24, 39',
+        '--pl-border': 'rgba(255, 255, 255, 0.08)',
+        '--pl-input-bg': 'rgba(255, 255, 255, 0.05)',
+        '--pl-input-border': 'rgba(255, 255, 255, 0.1)',
+        '--pl-input-placeholder': '#64748B',
+        '--pl-toggle-bg': 'rgba(255, 255, 255, 0.08)',
+      } as any}>
+        <div className="glass-panel !backdrop-blur-none overflow-hidden flex flex-col lg:flex-row shadow-2xl border-theme border w-full max-w-6xl mx-auto" style={{ background: "transparent", backdropFilter: "none", WebkitBackdropFilter: "none" }}>
 
           {/* ── Left info panel ── */}
-          <div className="w-full lg:w-2/5 p-8 md:p-12 relative overflow-hidden border-b lg:border-b-0 lg:border-r backdrop-blur-md" style={{ background: "rgba(var(--pl-bg-rgb), 0.7)", borderColor: "var(--pl-border)" }}>
+          <div className="w-full lg:w-2/5 p-8 md:p-12 relative overflow-hidden border-b lg:border-b-0 lg:border-r" style={{ background: "rgba(var(--pl-bg-rgb), 0.45)", borderColor: "var(--pl-border)" }}>
             <h2 className="text-2xl md:text-4xl font-extrabold mb-4 relative z-10">Get In Touch</h2>
             <p className="text-body mb-8 relative z-10 leading-relaxed text-base md:text-lg font-light">
               Fill the form and we'll send your details directly to our team on WhatsApp for a fast response.
@@ -111,7 +123,7 @@ export default function ContactForm() {
           </div>
 
           {/* ── Right form panel ── */}
-          <div className="w-full lg:w-3/5 p-6 sm:p-10 md:p-12 relative backdrop-blur-sm" style={{ background: "rgba(var(--pl-surface-rgb), 0.5)" }}>
+          <div className="w-full lg:w-3/5 p-6 sm:p-10 md:p-12 relative" style={{ background: "rgba(var(--pl-surface-rgb), 0.25)" }}>
             {status === "success" ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

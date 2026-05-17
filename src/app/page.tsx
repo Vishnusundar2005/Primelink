@@ -102,7 +102,7 @@ export default function Home() {
 
       {/* Futuristic Services Section */}
       <section className="py-32 relative">
-        <SectionBackground imageUrl="/images/Core.jpg" gradient={true} overlayOpacity={55} objectPosition="center" mobileObjectPosition="center" fixed={true} />
+        <SectionBackground imageUrl="/images/Our core capabilities.PNG" gradient={true} overlayOpacity={55} objectPosition="center" mobileObjectPosition="center" fixed={true} />
         <div className="glow-orb glow-orb-primary w-[1000px] h-[1000px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 z-10"></div>
 
         <div className="container-custom relative z-10">
@@ -150,24 +150,25 @@ export default function Home() {
       </section>
 
       {/* Animated Process Timeline */}
-      <section className="py-32 relative border-y" style={{ background: "var(--pl-bg-alt)", borderColor: "var(--pl-border)" }}>
+      <section className="py-12 relative overflow-hidden">
+        <SectionBackground imageUrl="/images/10 step fulfilment.PNG" gradient={true} overlayOpacity={85} />
         <div className="container-custom relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="text-center max-w-4xl mx-auto mb-24"
+            className="text-center max-w-4xl mx-auto mb-8"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">The 10-Step Fulfillment Engine</h2>
-            <p className="text-xl text-body font-light">A surgically precise workflow designed to eliminate variance and guarantee delivery.</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-on-bg">The 10-Step Fulfillment Engine</h2>
+            <p className="text-xl text-on-bg-muted font-light">A surgically precise workflow designed to eliminate variance and guarantee delivery.</p>
           </motion.div>
 
           <div className="relative">
             {/* Timeline Line */}
 
 
-            <div className="space-y-12 lg:space-y-24">
+            <div className="space-y-4 lg:space-y-4">
               {[
                 { step: "01", title: "Inquiry & Alignment", desc: "We map your exact specs, quality tolerances, and unit economics." },
                 { step: "02", title: "Supplier Sourcing", desc: "Matching requirements against our proprietary network of audited factories." },
@@ -181,11 +182,11 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-24 ${idx % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}
+                  className={`flex flex-col lg:flex-row items-center gap-4 lg:gap-8 ${idx % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}
                 >
-                  <div className={`w-full lg:w-1/2 ${idx % 2 === 0 ? 'lg:text-right' : 'lg:text-left'} glass-panel p-8 relative group hover:border-[#4F46E5]/50 transition-colors`}>
+                  <div className={`w-full lg:w-1/2 ${idx % 2 === 0 ? 'lg:text-right' : 'lg:text-left'} glass-panel p-5 relative group hover:border-[#4F46E5]/50 transition-colors`}>
                     <div className="text-6xl font-black opacity-5 text-heading absolute top-4 right-4 group-hover:text-[#4F46E5] group-hover:opacity-10 transition-all duration-300">{item.step}</div>
-                    <h4 className="text-2xl font-bold mb-4">{item.title}</h4>
+                    <h4 className="text-xl font-bold mb-1">{item.title}</h4>
                     <p className="text-body text-lg">{item.desc}</p>
                   </div>
 
@@ -203,7 +204,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-24 text-center"
+            className="mt-8 text-center"
           >
             <a href="/how-it-works" className="btn-primary">
               View All 10 Steps

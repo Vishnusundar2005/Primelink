@@ -59,7 +59,9 @@ export default function SectionBackground({
           style={{
             opacity: opacity / 100,
             y: parallax && !shouldReduceMotion && !(fixed && !isMobile) ? y : 0,
-            scale: parallax && !shouldReduceMotion ? scale : 1
+            scale: parallax && !shouldReduceMotion ? scale : 1,
+            transform: "translate3d(0, 0, 0)", // Offload scroll animations directly to GPU
+            willChange: "transform" // Optimize compositor layers for fluid 60Hz/120Hz scroll
           }}
         >
           <Image
@@ -69,7 +71,7 @@ export default function SectionBackground({
             priority={priority}
             className={`object-cover ${effectiveObjectPosition.startsWith('object-') ? effectiveObjectPosition : `object-${effectiveObjectPosition}`}`}
             sizes="100vw"
-            quality={75}
+            quality={65}
           />
         </motion.div>
         
